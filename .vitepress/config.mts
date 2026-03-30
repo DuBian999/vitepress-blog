@@ -15,7 +15,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: {
-      src: "/assets/profile/profile.jpg",
+      src: "/profile/profile.jpg",
       alt: "BLEACHの文档站",
       style: {
         borderRadius: "50%",
