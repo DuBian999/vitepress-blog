@@ -1,7 +1,11 @@
 import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
+
+const baseUrl = '/vitepress-blog/'
+
 export default defineConfig({
-  base: '/vitepress-blog/',
+  base: baseUrl,
+
   title: "BLEACHの文档站",
   description: "",
 
@@ -11,7 +15,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: {
-      src: "/assets/profile/profile.jpg",
+      src: baseUrl + "assets/profile/profile.jpg",
       alt: "BLEACHの文档站",
       style: {
         borderRadius: "50%",
