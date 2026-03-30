@@ -7,33 +7,42 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # 需要写入权限来推送 gh-pages 分支
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8  # 可指定版本，或留空使用 package.json 中的 packageManager 字段
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: pnpm   # 启用 pnpm 缓存
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build VitePress
         run: pnpm run docs:build
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist   # 构建输出目录
-          # 可选：指定分支，默认为 gh-pages
-          # publish_branch: gh-pages
-          # 可选：保留提交历史
-          # keep_files: false
+          path: docs/.vitepress/dist
+
+  deploy:
+    # ... 同之前
