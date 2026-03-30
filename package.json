@@ -14,8 +14,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.31.0",
   "devDependencies": {
-    "@vscode/markdown-it-katex": "^1.1.2",
-    "markdown-it-mathjax3": "^5.2.0",
     "vitepress": "^1.6.4",
     "vue": "^3.5.31"
   }

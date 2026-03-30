@@ -4,6 +4,10 @@ export default defineConfig({
   title: "BLEACHの文档站",
   description: "",
 
+  rewrites: {
+    "about/index.md": "index.md",
+  },
+
   themeConfig: {
     logo: {
       src: "/assets/profile/profile.jpg",
