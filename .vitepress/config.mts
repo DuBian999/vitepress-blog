@@ -57,7 +57,7 @@ export default defineConfig({
 
     nav: [
       { text: "软件设计师", link: "/softSkills/计算机组成与体系结构/进制" },
-      { text: "关于我", link: "/about/" },
+      { text: "关于我", link: "/" },
     ],
     sidebar: {
       "/softSkills/": [
