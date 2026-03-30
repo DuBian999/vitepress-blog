@@ -1,0 +1,22 @@
+{
+  "name": "vitepress-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.31.0",
+  "devDependencies": {
+    "@vscode/markdown-it-katex": "^1.1.2",
+    "markdown-it-mathjax3": "^5.2.0",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.31"
+  }
+}
